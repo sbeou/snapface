@@ -72,7 +72,7 @@ export class FaceSnapService {
         }
       }
 
-      snapFaceSnapById(faceSnapId: number, snapType: string): void {
+      snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): void {
         const faceSnap = this.getFaceSnapById(faceSnapId);
         snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
       }

@@ -4,3 +4,21 @@ header {
     margin-bottom: 20px;
     padding: 10px;
   }
+  a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .active {
+    color: #ccc;
+    text-decoration: underline;
+  }
+  ul{
+    display: flex;
+    list-style:none;
+    justify-content: center;
+  }
