@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+app-face-snap {
+    width:33%;
+}
+@media (max-width:768px) {
+    .content {
+        display: block;
+    }
+    app-face-snap {
+        width: inherit;
+    }
+}
