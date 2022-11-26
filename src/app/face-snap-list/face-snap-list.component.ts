@@ -1,32 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Subject, take, takeUntil, tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FaceSnap } from '../models/face-snap.model';
-import { FaceSnapService } from '../services/face-snaps.service';
+import { FaceSnapsService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap-list',
   templateUrl: './face-snap-list.component.html',
   styleUrls: ['./face-snap-list.component.scss']
 })
-export class FaceSnapListComponent implements OnInit, OnDestroy {
+export class FaceSnapListComponent implements OnInit {
 
-  faceSnaps!: FaceSnap[];
-  private destroy$!: Subject<boolean>;
+  faceSnaps$!: Observable<FaceSnap[]>;
 
-  constructor(private faceSanpsService: FaceSnapService) { }
+  constructor(private faceSanpsService: FaceSnapsService) { }
 
   ngOnInit(): void {
-    this.destroy$ = new Subject<boolean>();
-    this.faceSnaps = this.faceSanpsService.getAllFaceSnaps();
-
-    interval(1000).pipe(
-      takeUntil(this.destroy$),
-      tap(console.log)
-    ).subscribe();
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
+    this.faceSnaps$ = this.faceSanpsService.getAllFaceSnaps();
   }
 
 }
