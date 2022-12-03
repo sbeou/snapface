@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, UrlCreationOptions } from '@angular/router';
-import { FaceSnap } from '../models/face-snap.model';
-import { FaceSnapsService } from '../services/face-snaps.service';
+import { FaceSnap } from 'src/app/core/models/face-snap.model';
+import { FaceSnapsService } from 'src/app/core/services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -9,7 +9,7 @@ import { FaceSnapsService } from '../services/face-snaps.service';
   styleUrls: ['./face-snap.component.scss']
 })
 export class FaceSnapComponent implements OnInit {
-  @Input() faceSnap!: FaceSnap;
+  @Input() faceSnap!: FaceSnap
   buttonText!: string;
 
   constructor(private faceSnapsService: FaceSnapsService, 
